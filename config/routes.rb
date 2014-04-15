@@ -1,5 +1,7 @@
 ListApi::Application.routes.draw do
 
+  root "home#index"
+
   resources :authorize do
     collection do 
       get 'login'
