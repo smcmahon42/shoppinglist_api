@@ -46,9 +46,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 #Rack CORS Middleware
 gem 'rack-cors', :require => 'rack/cors'
 
-#data_mapper http://datamapper.org/
-gem 'data_mapper', '~> 1.2.0'
 
-#gem 'jquery', '~> 0.0.1'
+gem 'rails_12factor', '~> 0.0.2'
 
-#gem 'nokogiri', '~> 1.6.1'
