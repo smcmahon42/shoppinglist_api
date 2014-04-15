@@ -47,5 +47,5 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'rack-cors', :require => 'rack/cors'
 
 
-gem 'rails_12factor', '~> 0.0.2'
-
+#gem 'rails_12factor', '~> 0.0.2'
+gem 'rails_12factor', group: :production
