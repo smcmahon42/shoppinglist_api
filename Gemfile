@@ -22,7 +22,7 @@ gem 'mysql2'
 #gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -39,10 +39,17 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+#gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
 #Rack CORS Middleware
 gem 'rack-cors', :require => 'rack/cors'
+
+#data_mapper http://datamapper.org/
+gem 'data_mapper', '~> 1.2.0'
+
+gem 'jquery', '~> 0.0.1'
+
+gem 'nokogiri', '~> 1.6.1'
