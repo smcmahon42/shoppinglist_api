@@ -1,17 +1,17 @@
 
 development:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: list_app_dev
   pool: 5
-  username: seanmcmahon
+  username: 
   password: 
 
 test:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: list_api_test
   pool: 5
-  username: seanmcmahon
+  username: 
   password:
 
