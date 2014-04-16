@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 
 gem 'pg'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 # Use SCSS for stylesheets
 #gem 'sass-rails', '~> 4.0.0'
 
@@ -37,6 +38,5 @@ gem 'rack-cors', :require => 'rack/cors'
 #gem 'rails_12factor', '~> 0.0.2'
 gem 'rails_12factor', group: :production
 
-gem 'dotenv-rails', '~> 0.10.0'
 
 ruby "2.1.1"
