@@ -6,7 +6,12 @@ class AuthorizeController < ApplicationController
       if success
       	token = genToken
       	@authUser[0].update_attributes(:token => token, :expire => Time.now.to_s)
-        render :json => [{ :token => token }], :status => 200
+        render :json => [{ 
+          :token => token, 
+          :id => @authUser[0].id, 
+          :first_name => @authUser[0].first_name,
+          :last_name => @authUser[0].last_name,
+          }], :status => 200
       else
         render :json => [{ :token => 'null' }], :status => 410
       end

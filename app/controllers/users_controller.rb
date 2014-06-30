@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if@user.save
-      render :json => [ :user =>@user, :success => true ]
+    if @user.save
+      token = genToken
+      @user.update_attributes(:token => token, :expire => Time.now.to_s)
+      render :json => [ :user => @user, :success => true ]
     else
       render :json => [ :success => false ]
     end
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @userArray = [ :user => @user, :success => true ]
+    @userArray = [ @user, :success => true ]
     render :json => @userArray
   end
 

@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 			return true
 		elsif !request.headers['X-XSRF-TOKEN'].blank?
 			userAuth = User.where( :token => request.headers['X-XSRF-TOKEN'] ).limit(1)
-			puts expireTime = userAuth[0].expire.to_i
+			expireTime = userAuth[0].expire.to_i
 			nowTime = Time.now.to_i
 			if(nowTime - expireTime) > 86400 #24 hours from now
 				sendError
