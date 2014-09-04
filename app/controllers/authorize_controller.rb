@@ -13,7 +13,7 @@ class AuthorizeController < ApplicationController
           :last_name => @authUser[0].last_name,
           }], :status => 200
       else
-        render :json => [{ :token => 'null' }], :status => 410
+        render :json => [{ :token => 'null' }], :status => 400
       end
     end
 

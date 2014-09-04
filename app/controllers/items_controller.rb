@@ -9,18 +9,18 @@ class ItemsController < ApplicationController
       @list = Item.search( params[:name] )
       render :json => [ @list ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 
   def create
     @items = Item.new(items_params)
-    if@items.save && !params[:shoppinglist_id].blank?
+    if @items.save && !params[:shoppinglist_id].blank?
       @list = Shoppinglist.find(params[:shoppinglist_id])
       @items.shoppinglists << @list 
       render :json => [ @items ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
       @list = Shoppinglist.find(params[:shoppinglist_id])
       render :json => [ @list.items ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
       @item.destroy
       render :json => [ @item ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 

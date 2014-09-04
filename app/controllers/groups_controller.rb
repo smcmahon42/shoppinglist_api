@@ -7,8 +7,8 @@ class GroupsController < ApplicationController
       # render_with_protection @selectedGroups
       render :json => [ @selectedGroups ]
     else
-      @group = Group.all.where( :private => false, :limit => 100 ).order("groups.id ASC")
-      render :json => [ @group ]
+      @group = Group.all.order("groups.id ASC")#.where( :private => false, :limit => 100 ).order("groups.id ASC")
+      render :json => [ @group ] 
     end
   end
 
@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
       @group.users << @user
       render :json => [ @group ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end 
 
@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
     elsif @group.update_attributes(group_params)
       render :json => [ @group ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 

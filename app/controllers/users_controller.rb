@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     if @user.save
       token = genToken
       @user.update_attributes(:token => token, :expire => Time.now.to_s)
-      render :json => [ :user => @user, :success => true ]
+      render :json => [ :user => @user ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end 
 
@@ -24,15 +24,15 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      render :json => [ :user => @user, :success => true ]
+      render :json => [ :user => @user ]
     else
-      render :json => [ :success => false ]
+      render :json => [ :success => false ], :status => 400
     end
   end
 
   def destroy
     @user = User.find(params[:id]).destroy
-    render :json => [ :user => @user, :success => true ]
+    render :json => [ :user => @user ]
   end
 
   private

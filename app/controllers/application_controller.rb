@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 	def verfyToken
 		
 		def sendError
-			render :json => [], :status => 420
+			render :json => [], :status => 400
 		end
 		
 		uriSegment = url_for(action: 'index', only_path: true)
@@ -21,9 +21,8 @@ class ApplicationController < ActionController::Base
 			return true
 		elsif !request.headers['X-XSRF-TOKEN'].blank?
 			userAuth = User.where( :token => request.headers['X-XSRF-TOKEN'] ).limit(1)
-			expireTime = userAuth[0].expire.to_i
-			nowTime = Time.now.to_i
-			if(nowTime - expireTime) > 86400 #24 hours from now
+
+			if userAuth[0].expire.to_i > 86400 #24 hours from now
 				sendError
 			else
 				return true 
